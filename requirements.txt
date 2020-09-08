@@ -3,6 +3,5 @@ tensorflow
 joblib
 sklearn
 pandas
-textblob
 gunicorn
 
