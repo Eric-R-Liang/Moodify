@@ -1,7 +1,6 @@
 flask
 tensorflow
 joblib
-sklearn
 pandas
 gunicorn
 
