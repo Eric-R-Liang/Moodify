@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Moodify</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Tangerine" rel="stylesheet" type="text/css">
+</head>
+
+<style>
+    body{
+        background:#89ABE3FF;
+    }
+
+    #OutputMood {
+        font-size: 26px;
+        text-align: left;
+        font-family: "Times New Roman";
+        color: white;
+    }
+
+    #span_mood{
+        font-size: 26px;
+        text-align: left;
+        font-family: "Times New Roman";
+        font-weight:bold;
+        color: lightpink;
+    }
+
+    #Mood_Artists{
+        font-family:"Times New Roman";
+        font-size: 26px;
+        font-style: italic;
+        text-align: left;
+        color: white;
+    }
+
+    #span_mood_artists{
+        font-family:"Times New Roman";
+        font-weight:bold;
+        font-size: 26px;
+        font-style:normal;
+        text-align: left;
+        color: lightpink;
+    }
+    #span_generated{
+        font-family:"Times New Roman";
+        font-weight:bold;
+        font-size: 26px;
+        text-align: left;
+        color: lightpink;
+    }
+
+    #OutputLyrics{
+        font-family:"Times New Roman";
+        font-size: 26px;
+        text-align: left;
+        color: white;
+    }
+
+
+    .header h1{
+        font-family:Lobster;
+        text-align: center;
+        font-size: 60px;
+        color:#FCF6F5FF;
+    }
+    .header img{
+        max-width:100%;
+        height:auto;
+    }
+
+    .header h2{
+        font-size: 24px;
+        font-family:"Times New Roman";
+        color:#FCF6F5FF;
+
+    }
+    #mood{
+        width:30%;
+        color:royalblue;
+        background-image:url("https://user-images.githubusercontent.com/39924702/91780754-7360d800-ebc6-11ea-96a2-0f9e8ede30ae.png");
+        background-position-x: 5px;
+        background-repeat:no-repeat;
+        background-size:45px 45px;
+        font-size:15px;
+        text-alight:center;
+        border-radius:25px;
+        padding:20px 20px 20px 60px;
+        margin-left:20%;
+    }
+    #Artists{
+        width:200px;
+        height:50px;
+        border-radius:20px;
+        margin-left:30%;
+        font-size:15px;
+        text-align:center
+    }
+    #Artists select{
+        display:none;
+    }
+
+    #lyrics{
+        width:30%;
+        color:royalblue;
+        font-size:15px;
+        background-image:url("https://user-images.githubusercontent.com/39924702/92342443-e2d73b80-f08e-11ea-99ab-7e49eb0d90a8.png");
+        background-position-x: 5px;
+        background-repeat:no-repeat;
+        background-size: 45px 45px;
+        text-alight:center;
+        border-radius:25px;
+        padding:20px 20px 20px 60px;
+        margin-left:20%;
+    }
+
+    input[type=submit]{
+        height:75px;
+        width:75px;
+        border-radius:30px;
+        font-size:20px;
+        margin-right:25%;
+        text-align:center;
+        background-color:mediumspringgreen;
+    }
+    input[type=text]::placeholder{
+        font-size:15px;
+        color:slategrey;
+    }
+    input[type=text]:focus{
+        background-color:lightblue;
+    }
+
+    #back_button{
+        margin-left:90%;
+        width: 75px;
+        height:50px;
+    }
+    .first_form{
+        white-space:nowrap;
+    }
+
+</style>
+<body>
+<div class="header">
+    <h1>Moodify             <img src="https://user-images.githubusercontent.com/39924702/91772860-ad74ae80-ebb3-11ea-8509-04aeac38af48.png" width = 100 height = -250 alt="logo"></h1>
+    <h2>Welcome to Moodify, an AI controlled webapp that detects your current mood, and lets you to create your own lyrics based on different artists!</h2>
+    <br><br><br><br><br><br>
+</div>
+<main>
+
+
+    {% if flag ==True %}
+        <div class="first_form">
+            <form id="form1" action="" class="form" method="POST">
+        <!-- <labeln style="color:#00203FFF">Please enter one sentence to describe your day:</labeln> -->
+                <input type="submit" name="submit" value="Submit Mood" style="float:right;">
+                <input type="text" class="form-control" placeholder="Enter 1 sentence to describe your day" id="mood" name="mood" value="{{ request.form.mood }}">
+            </form>
+        </div>
+    {% endif %}
+
+
+
+    {% if user_mood %}
+        {% if user_mood == "joy" %}
+            <p id="OutputMood"><span id="span_mood">Detected Mood:</span> Happy   <img src="https://user-images.githubusercontent.com/39924702/92338736-5160cd00-f080-11ea-8bd0-e309a085ae95.png" width = 40 alt="logo"></p>
+            <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> ABBA, Ed Sheeran, Jonas Brothers, Katy Perry, Maroon5, Michael Jackson, Taylor Swift</p><br>
+            <form id="form2" action="" class="form" method="POST">
+                    <select id="Artists" name="Artists">
+                        <option value="DEFAULT">Select an artist:</option>
+                        <option value="ABBA">ABBA</option>
+                        <option value="Ed Sheeran">Ed Sheeran</option>
+                        <option value="Jonas Brothers">Jonas Brothers</option>
+                        <option value="Katy Perry">Katy Perry</option>
+                        <option value="Maroon5">Maroon5</option>
+                        <option value="Michael Jackson">Michael Jackson</option>
+                        <option value="Taylor Swift">Taylor Swift</option>
+                    </select><br><br><br>
+                    <input type="submit" name="submit" value="Submit Lyrics" style="float:right;">
+                    <input type="text" class="form-control" placeholder="Enter a few words to start off the lyrics..." id="lyrics" name="lyrics" value="{{ request.form.lyrics }}"><br>
+                </form>
+        {% elif user_mood == "sad" %}
+                <p id="OutputMood"><span id="span_mood">Detected Mood:</span> Sad   <img src="https://user-images.githubusercontent.com/39924702/92340525-b7515280-f088-11ea-82b5-d75b01aa02d5.png" width = 40 alt="logo"></p>
+                <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> Drake, Ed Sheeran, Lady Gaga, Rihanna, The Weekend</p><br>
+                <form id="form2" action="" class="form" method="POST">
+                    <select id="Artists" name="Artists">
+                        <option value="DEFAULT">Select an artist:</option>
+                        <option value="Drake">Drake</option>
+                        <option value="Ed Sheeran">Ed Sheeran</option>
+                        <option value="Lady Gaga">Lady Gaga</option>
+                        <option value="Rihanna">Rihanna</option>
+                        <option value="The Weekend">The Weekend</option>
+                    </select><br><br><br>
+                    <input type="submit" name="submit" value="Submit Lyrics" style="float:right;">
+                    <input type="text" class="form-control" placeholder="Enter a few words to start off the lyrics..." id="lyrics" name="lyrics" value="{{ request.form.lyrics }}"><br>
+                </form>
+        {% elif user_mood == "anger" %}
+                <p id="OutputMood"><span id="span_mood">Detected Mood:</span> Angry   <img src="https://user-images.githubusercontent.com/39924702/92340773-a35a2080-f089-11ea-89e8-6399df487182.png" width = 40 alt="logo"></p>
+                <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> Drake, Kendrick Lamar, Rihanna, The Weekend</p><br>
+                <form id="form2" action="" class="form" method="POST">
+                    <select id="Artists" name="Artists">
+                        <option value="DEFAULT">Select an artist:</option>
+                        <option value="Drake">Drake</option>
+                        <option value="Kendrick Lamar">Kendrick Lamar</option>
+                        <option value="Rihanna">Rihanna</option>
+                        <option value="The Weekend">The Weekend</option>
+                    </select><br><br><br>
+                    <input type="submit" name="submit" value="Submit Lyrics" style="float:right;">
+                    <input type="text" class="form-control" placeholder="Enter a few words to start off the lyrics..." id="lyrics" name="lyrics" value="{{ request.form.lyrics }}"><br>
+                </form>
+        {% elif user_mood == "fear" %}
+                <p id="OutputMood"><span id="span_mood">Detected Mood:</span> Fear   <img src="https://user-images.githubusercontent.com/39924702/92340864-d8667300-f089-11ea-82c3-a6fae33e4ec3.png" width = 40 alt="logo"></p>
+                <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> Drake, Kendrick Lamar, The Weekend</p><br>
+                <form id="form2" action="" class="form" method="POST">
+                    <select id="Artists" name="Artists">
+                        <option value="DEFAULT">Select an artist:</option>
+                        <option value="Drake">Drake</option>
+                        <option value="Kendrick Lamar">Kendrick Lamar</option>
+                        <option value="The Weekend">The Weekend</option>
+                    </select><br><br><br>
+                    <input type="submit" name="submit" value="Submit Lyrics" style="float:right;">
+                    <input type="text" class="form-control" placeholder="Enter a few words to start off the lyrics..." id="lyrics" name="lyrics" value="{{ request.form.lyrics }}"><br>
+                </form>
+        {% elif user_mood == "love" %}
+                <p id="OutputMood"><span id="span_mood">Detected Mood:</span> Love   <img src="https://user-images.githubusercontent.com/39924702/92340785-a81ed480-f089-11ea-99b3-f1e3b0ba1265.png" width = 40 alt="logo"></p>
+                <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> ABBA, Ed Sheeran, Justin Bieber, Katy Perry, Lady Gaga, Michael Jackson, Taylor Swift</p><br>
+                <form id="form2" action="" class="form" method="POST">
+                    <select id="Artists" name="Artists">
+                        <option value="DEFAULT">Select an artist:</option>
+                        <option value="ABBA">ABBA</option>
+                        <option value="Ed Sheeran">Ed Sheeran</option>
+                        <option value="Justin Bieber">Justin Bieber</option>
+                        <option value="Katy Perry">Katy Perry</option>
+                        <option value="Lady Gaga">Lady Gaga</option>
+                        <option value="Michael Jackson">Michael Jackson</option>
+                        <option value="Taylor Swift">Taylor Swift</option>
+                    </select><br><br><br>
+                    <input type="submit" name="submit" value="Submit Lyrics" style="float:right;">
+                    <input type="text" class="form-control" placeholder="Enter a few words to start off the lyrics..." id="lyrics" name="lyrics" value="{{ request.form.lyrics }}"><br>
+                </form>
+        {% elif user_mood == "surprised" %}
+                <p id="OutputMood"><span id="span_mood">Detected Mood:</span> Surprised   <img src="https://user-images.githubusercontent.com/39924702/92340820-bd93fe80-f089-11ea-8117-c1d7b767b01b.png" width = 40 alt="logo"></p>
+                <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> Justin Bieber, Maroon5, Michael Jackson</p><br>
+                <form id="form2" action="" class="form" method="POST">
+                    <select id="Artists" name="Artists">
+                        <option value="DEFAULT">Select an artist:</option>
+                        <option value="Justin Bieber">Justin Bieber</option>
+                        <option value="Maroon5">Maroon5</option>
+                        <option value="Michael Jackson">Michael Jackson</option>
+                    </select><br><br><br>
+                    <input type="submit" name="submit" value="Submit Lyrics" style="float:right;">
+                    <input type="text" class="form-control" placeholder="Enter a few words to start off the lyrics..." id="lyrics" name="lyrics" value="{{ request.form.lyrics }}"><br>
+                </form>
+        {% endif %}
+            <p id="OutputLyrics"><span id="span_generated">Generated Lyrics:</span> {{ user_input }}</p><br><br>
+            <input type="button" id="back_button" value="Back" onclick="history.back()">
+    {% endif %}
+
+
+
+</main>
+</body>
+</html>
