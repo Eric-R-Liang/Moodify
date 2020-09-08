@@ -1,6 +1,5 @@
 flask==1.1.2
 Jinja2==2.11.2
-tensorflow-cpu
 joblib==0.16.0
 pandas==1.1.1
 gunicorn
