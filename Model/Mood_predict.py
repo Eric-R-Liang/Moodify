@@ -4,7 +4,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 import pandas as pd
 import pickle
 import re
-from textblob import Word
+#from textblob import Word
 
 def predict_mood(inputs):
     #data = pickle.load(open("Mood/merged_training.pkl", "rb"))
@@ -16,7 +16,7 @@ def predict_mood(inputs):
     stop = open("Model/Mood/english.txt", 'r')
     inputs = inputs.apply(lambda x: " ".join(x for x in x.split() if x not in stop))
 
-    inputs = inputs.apply(lambda x: " ".join([Word(word).lemmatize() for word in x.split()]))
+    #inputs = inputs.apply(lambda x: " ".join([Word(word).lemmatize() for word in x.split()]))
     count_vect =joblib.load("Model/Mood/Vectorizer.pkl")
     inputs_count = count_vect.transform(inputs)
     inputs_pred = model.predict(inputs_count)
