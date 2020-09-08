@@ -1,12 +1,8 @@
 flask
 tensorflow
-csv
-string
 joblib
 sklearn
 pandas
-pickle
-re
 textblob
 gunicorn
 xgboost
