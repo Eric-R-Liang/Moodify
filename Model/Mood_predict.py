@@ -1,6 +1,4 @@
-import sklearn
 import joblib
-from sklearn.feature_extraction.text import CountVectorizer
 import pandas as pd
 import pickle
 import re
