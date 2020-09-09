@@ -1,5 +1,4 @@
 import joblib
-import pandas as pd
 import pickle
 import re
 #from textblob import Word
@@ -8,8 +7,8 @@ def predict_mood(inputs):
     #data = pickle.load(open("Mood/merged_training.pkl", "rb"))
     #data['text'] = data['text'].apply(lambda x: " ".join(de_repeat(x) for x in x.split()))
     model = joblib.load("Model/Mood/mood_model.pkl")
-    inputs = pd.Series(inputs)
-    inputs = inputs.str.replace('[^\w\s]', ' ')
+    
+    inputs = inputs.replace('[^\w\s]', ' ')
 
     stop = open("Model/Mood/english.txt", 'r')
     inputs = inputs.apply(lambda x: " ".join(x for x in x.split() if x not in stop))
