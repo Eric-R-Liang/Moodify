@@ -82,9 +82,9 @@ def predict(class_choice,data):
     elif (class_choice == "Maroon5"):
         max_sequence_len = construct_prereq("Model/Maroon5_Model/Maroon5.txt")
         model = tensorflow.keras.models.load_model("Model/Maroon5_Model/Maroon5.h5")
-    elif (class_choice == "The Weekend"):
-        max_sequence_len = construct_prereq("Model/The_Weekend_Model/The_Weekend.txt")
-        model = tensorflow.keras.models.load_model("Model/The_Weekend_Model/The_Weekend.h5")
+    elif (class_choice == "Ariana Grande"):
+        max_sequence_len = construct_prereq("Model/Ariana_Grande_Model/Ariana_Grande.txt")
+        model = tensorflow.keras.models.load_model("Model/Ariana_Grande_Model/Ariana_Grande.h5")
 
     for _ in range(next_words):
         token_list = tokenizer.texts_to_sequences([seed_text])[0]
