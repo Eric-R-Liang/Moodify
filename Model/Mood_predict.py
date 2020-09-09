@@ -1,17 +1,18 @@
 import joblib
 import pickle
 import re
+import pandas as pd
 #from textblob import Word
 
 def predict_mood(inputs):
     #data = pickle.load(open("Mood/merged_training.pkl", "rb"))
     #data['text'] = data['text'].apply(lambda x: " ".join(de_repeat(x) for x in x.split()))
     model = joblib.load("Model/Mood/mood_model.pkl")
-    
-    inputs = inputs.replace('[^\w\s]', ' ')
+    inputs = pd.Series(inputs)
+    inputs = inputs.str.replace('[^\w\s]', ' ')
 
     stop = open("Model/Mood/english.txt", 'r')
-    #inputs = inputs.apply(lambda x: " ".join(x for x in x.split() if x not in stop))
+    inputs = inputs.apply(lambda x: " ".join(x for x in x.split() if x not in stop))
 
     #inputs = inputs.apply(lambda x: " ".join([Word(word).lemmatize() for word in x.split()]))
     count_vect =joblib.load("Model/Mood/Vectorizer.pkl")
