@@ -11,7 +11,7 @@ def predict_mood(inputs):
     inputs = inputs.replace('[^\w\s]', ' ')
 
     stop = open("Model/Mood/english.txt", 'r')
-    inputs = inputs.apply(lambda x: " ".join(x for x in x.split() if x not in stop))
+    #inputs = inputs.apply(lambda x: " ".join(x for x in x.split() if x not in stop))
 
     #inputs = inputs.apply(lambda x: " ".join([Word(word).lemmatize() for word in x.split()]))
     count_vect =joblib.load("Model/Mood/Vectorizer.pkl")
