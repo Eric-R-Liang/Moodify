@@ -75,7 +75,7 @@ def predict(class_choice,data):
         model = tensorflow.keras.models.load_model("Model/Katy_Perry_Model/Katy_Perry.h5")
     elif (class_choice == "Kendrick Lamar"):
         max_sequence_len = construct_prereq("Model/Kendrick_Lamar_Model/Kendrick_Lamar.txt")
-        model = tensorflow.keras.models.load_model("Model/Donald_Trump_Model/DonaldTrump.h5")
+        model = tensorflow.keras.models.load_model("Model/Kendrick_Lamar_Model/Kendrick_Lamar.h5")
     elif (class_choice == "Lady Gaga"):
         max_sequence_len = construct_prereq("Model/Lady_Gaga_Model/Lady_Gaga.txt")
         model = tensorflow.keras.models.load_model("Model/Lady_Gaga_Model/Lady_Gaga.h5")
