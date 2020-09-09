@@ -176,7 +176,6 @@
                         <option value="Jonas Brothers">Jonas Brothers</option>
                         <option value="Katy Perry">Katy Perry</option>
                         <option value="Maroon5">Maroon5</option>
-                  
                         <option value="Taylor Swift">Taylor Swift</option>
                     </select><br><br><br>
                     <input type="submit" name="submit" value="Submit Lyrics" style="float:right;">
@@ -184,57 +183,56 @@
                 </form>
         {% elif user_mood == "sad" %}
                 <p id="OutputMood"><span id="span_mood">Detected Mood:</span> Sad   <img src="https://user-images.githubusercontent.com/39924702/92340525-b7515280-f088-11ea-82b5-d75b01aa02d5.png" width = 40 alt="logo"></p>
-                <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> Drake, Ed Sheeran, Lady Gaga, The Weekend</p><br>
+                <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> Ariana Grande, Drake, Ed Sheeran, Lady Gaga</p><br>
                 <form id="form2" action="" class="form" method="POST">
                     <select id="Artists" name="Artists">
                         <option value="DEFAULT">Select an artist:</option>
+                        <option value="Ariana Grande">Ariana Grande</option>
                         <option value="Drake">Drake</option>
                         <option value="Ed Sheeran">Ed Sheeran</option>
                         <option value="Lady Gaga">Lady Gaga</option>
-                   
-                        <option value="The Weekend">The Weekend</option>
                     </select><br><br><br>
                     <input type="submit" name="submit" value="Submit Lyrics" style="float:right;">
                     <input type="text" class="form-control" placeholder="Enter a few words to start off the lyrics..." id="lyrics" name="lyrics" value="{{ request.form.lyrics }}"><br>
                 </form>
         {% elif user_mood == "anger" %}
                 <p id="OutputMood"><span id="span_mood">Detected Mood:</span> Angry   <img src="https://user-images.githubusercontent.com/39924702/92340773-a35a2080-f089-11ea-89e8-6399df487182.png" width = 40 alt="logo"></p>
-                <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> Drake, Kendrick Lamar, Rihanna, The Weekend</p><br>
+                <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> Ariana Grande, Drake, Kendrick Lamar</p><br>
                 <form id="form2" action="" class="form" method="POST">
                     <select id="Artists" name="Artists">
                         <option value="DEFAULT">Select an artist:</option>
+                        <option value="Ariana Grande">Ariana Grande</option>
                         <option value="Drake">Drake</option>
                         <option value="Kendrick Lamar">Kendrick Lamar</option>
-                        <option value="The Weekend">The Weekend</option>
                     </select><br><br><br>
                     <input type="submit" name="submit" value="Submit Lyrics" style="float:right;">
                     <input type="text" class="form-control" placeholder="Enter a few words to start off the lyrics..." id="lyrics" name="lyrics" value="{{ request.form.lyrics }}"><br>
                 </form>
         {% elif user_mood == "fear" %}
                 <p id="OutputMood"><span id="span_mood">Detected Mood:</span> Fear   <img src="https://user-images.githubusercontent.com/39924702/92340864-d8667300-f089-11ea-82c3-a6fae33e4ec3.png" width = 40 alt="logo"></p>
-                <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> Drake, Kendrick Lamar, The Weekend</p><br>
+                <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> Ariana Grande,Drake, Kendrick Lamar, The Weekend</p><br>
                 <form id="form2" action="" class="form" method="POST">
                     <select id="Artists" name="Artists">
                         <option value="DEFAULT">Select an artist:</option>
+                        <option value="Ariana Grande">Ariana Grande</option>
                         <option value="Drake">Drake</option>
                         <option value="Kendrick Lamar">Kendrick Lamar</option>
-                        <option value="The Weekend">The Weekend</option>
                     </select><br><br><br>
                     <input type="submit" name="submit" value="Submit Lyrics" style="float:right;">
                     <input type="text" class="form-control" placeholder="Enter a few words to start off the lyrics..." id="lyrics" name="lyrics" value="{{ request.form.lyrics }}"><br>
                 </form>
         {% elif user_mood == "love" %}
                 <p id="OutputMood"><span id="span_mood">Detected Mood:</span> Love   <img src="https://user-images.githubusercontent.com/39924702/92340785-a81ed480-f089-11ea-99b3-f1e3b0ba1265.png" width = 40 alt="logo"></p>
-                <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> ABBA, Ed Sheeran, Justin Bieber, Katy Perry, Lady Gaga, Taylor Swift</p><br>
+                <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> ABBA, Ariana Grande, Ed Sheeran, Justin Bieber, Katy Perry, Lady Gaga, Taylor Swift</p><br>
                 <form id="form2" action="" class="form" method="POST">
                     <select id="Artists" name="Artists">
                         <option value="DEFAULT">Select an artist:</option>
                         <option value="ABBA">ABBA</option>
+                        <option value="Ariana Grande">Ariana Grande</option>
                         <option value="Ed Sheeran">Ed Sheeran</option>
                         <option value="Justin Bieber">Justin Bieber</option>
                         <option value="Katy Perry">Katy Perry</option>
                         <option value="Lady Gaga">Lady Gaga</option>
-        
                         <option value="Taylor Swift">Taylor Swift</option>
                     </select><br><br><br>
                     <input type="submit" name="submit" value="Submit Lyrics" style="float:right;">
@@ -242,13 +240,13 @@
                 </form>
         {% elif user_mood == "surprised" %}
                 <p id="OutputMood"><span id="span_mood">Detected Mood:</span> Surprised   <img src="https://user-images.githubusercontent.com/39924702/92340820-bd93fe80-f089-11ea-8117-c1d7b767b01b.png" width = 40 alt="logo"></p>
-                <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> Justin Bieber, Maroon5</p><br>
+                <p id="Mood_Artists"><span id="span_mood_artists">Your recommended artists are:</span> Ariana Grande, Justin Bieber, Maroon5</p><br>
                 <form id="form2" action="" class="form" method="POST">
                     <select id="Artists" name="Artists">
                         <option value="DEFAULT">Select an artist:</option>
+                        <option value="Ariana Grande">Ariana Grande</option>
                         <option value="Justin Bieber">Justin Bieber</option>
                         <option value="Maroon5">Maroon5</option>
-                        
                     </select><br><br><br>
                     <input type="submit" name="submit" value="Submit Lyrics" style="float:right;">
                     <input type="text" class="form-control" placeholder="Enter a few words to start off the lyrics..." id="lyrics" name="lyrics" value="{{ request.form.lyrics }}"><br>
